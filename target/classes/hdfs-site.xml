@@ -1,0 +1,516 @@
+<configuration>
+    <property>
+        <name>dfs.client.failover.proxy.provider.jf-iceberg</name>
+        <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+        <description>为主机配置的故障转移代理提供程序的类名的前缀</description>
+    </property>
+    <property>
+        <name>dfs.cluster.administrators</name>
+        <value>hdfs,tdpzj</value>
+        <description>管理员ACL列表, 用于控制谁可以访问namenode, 多个值由逗号分隔</description>
+    </property>
+    <property>
+        <name>dfs.datanode.failed.volumes.tolerated</name>
+        <value>3</value>
+        <description>决定停止数据节点提供服务允许卷的出错次数, 0则表示任务卷出错都要停止数据节点</description>
+    </property>
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>/dkdata/hadoop-meta/namenode</value>
+        <description>namenode元数据存放位置</description>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>/chunk01/hdfs,/chunk02/hdfs,/chunk03/hdfs,/chunk04/hdfs,/chunk05/hdfs,/chunk06/hdfs,/chunk07/hdfs,/chunk08/hdfs,/chunk09/hdfs,/chunk10/hdfs,/chunk11/hdfs,/chunk12/hdfs</value>
+        <description>设置datanode节点存储数据文件的本地路径</description>
+    </property>
+    <property>
+        <name>dfs.permissions.superusergroup</name>
+        <value>hadoop</value>
+        <description>HDFS的超级用户组的组名</description>
+    </property>
+    <property>
+        <name>dfs.nameservices</name>
+        <value>jf-iceberg</value>
+        <description>服务器名称列表</description>
+    </property>
+    <property>
+        <name>dfs.internal.nameservices</name>
+        <value>jf-iceberg</value>
+        <description>集群的nameservice列表</description>
+    </property>
+    <property>
+        <name>dfs.ha.namenodes.jf-iceberg</name>
+        <value>nn1,nn2</value>
+        <description>给定nameservicce的前缀列表, 可以用逗号分割</description>
+    </property>
+    <property>
+        <name>dfs.blocksize</name>
+        <value>134217728</value>
+        <description>新文件的块大小</description>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.keytab</name>
+        <value>/etc/security/keytabs/HTTP.keytab</value>
+        <description>dfs.web.authentication.kerberos.principal属性相关的keytab文件</description>
+    </property>
+    <property>
+        <name>dfs.journalnode.keytab.file</name>
+        <value>/etc/security/keytabs/hdfs.keytab</value>
+        <description>journalnode节点的keytab文件</description>
+    </property>
+    <property>
+        <name>dfs.namenode.keytab.file</name>
+        <value>/etc/security/keytabs/hdfs.keytab</value>
+        <description>namenode服务的keytab文件</description>
+    </property>
+    <property>
+        <name>dfs.datanode.peer.stats.enabled</name>
+        <value>true</value>
+        <description>是否开启datanode的跟踪统计</description>
+    </property>
+    <property>
+        <name>dfs.datanode.fileio.profiling.sampling.percentage</name>
+        <value>25</value>
+        <description>设置控制文件I/O事件的百分比。默认值为0禁用磁盘统计。设置为1和100之间的整数值, 以启用磁盘统计</description>
+    </property>
+    <property>
+        <name>dfs.blockreport.incremental.intervalMsec</name>
+        <value>300</value>
+        <description>从datanode向namenode发送增量块报告的等待时间, 单位为毫秒</description>
+    </property>
+    <property>
+        <name>dfs.image.transfer.bandwidthPerSec</name>
+        <value>83886080</value>
+        <description>用于常规image传输的最大带宽, 即每秒的字节数</description>
+    </property>
+    <property>
+        <name>dfs.namenode.startup.delay.block.deletion.sec</name>
+        <value>3600</value>
+        <description>块删除的延迟时间</description>
+    </property>
+    <property>
+        <name>dfs.encrypt.data.transfer.cipher.suites</name>
+        <value>AES/CTR/NoPadding</value>
+        <description>激活AES加密</description>
+    </property>
+    <property>
+        <name>dfs.block.access.token.enable</name>
+        <value>true</value>
+        <description>访问dataNode数据节点时是否验证权限</description>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir.perm</name>
+        <value>700</value>
+        <description>datanode所使用的本地文件夹的路径权限</description>
+    </property>
+    <property>
+        <name>dfs.datanode.address</name>
+        <value>0.0.0.0:1004</value>
+        <description>datanode服务器地址和端口</description>
+    </property>
+    <property>
+        <name>dfs.datanode.http.address</name>
+        <value>0.0.0.0:1006</value>
+        <description>datanode HTTP服务器地址和端口</description>
+    </property>
+    <property>
+        <name>dfs.webhdfs.enabled</name>
+        <value>true</value>
+        <description>是否允许在namenode和datanode中启用WebHDFS(REST API)</description>
+    </property>
+    <property>
+        <name>dfs.datanode.keytab.file</name>
+        <value>/etc/security/keytabs/hdfs.keytab</value>
+        <description>datanode服务的keytab文件</description>
+    </property>
+    <property>
+        <name>dfs.namenode.service.handler.count</name>
+        <value>25</value>
+        <description>用于配置datanode和其它非client节点的监听线程数</description>
+    </property>
+    <property>
+        <name>dfs.namenode.checkpoint.period</name>
+        <value>10800</value>
+        <description>两个周期检查点之间的秒数</description>
+    </property>
+    <property>
+        <name>dfs.namenode.checkpoint.txns</name>
+        <value>6000000</value>
+        <description>创建检查点的时间间隔</description>
+    </property>
+    <property>
+        <name>dfs.namenode.fslock.fair</name>
+        <value>false</value>
+        <description>是否设置namesystem锁为公平模式</description>
+    </property>
+    <property>
+        <name>dfs.namenode.handler.count</name>
+        <value>100</value>
+        <description>RPC服务器的监听client线程数</description>
+    </property>
+    <property>
+        <name>dfs.namenode.name.dir.restore</name>
+        <value>true</value>
+        <description>如果为true, 则允许namenode尝试恢复之前失败的dfs.namenode.name.dir目录。当启用时, 在检查点期间会尝试恢复任何失败的目录</description>
+    </property>
+    <property>
+        <name>dfs.namenode.safemode.threshold-pct</name>
+        <value>0.99</value>
+        <description>dfs.namenode.replication.min属性中副本需要满足的块的百分比</description>
+    </property>
+    <property>
+        <name>dfs.journalnode.http-address</name>
+        <value>0.0.0.0:8480</value>
+        <description>journalnode HTTP服务器监听的地址和端口</description>
+    </property>
+    <property>
+        <name>dfs.namenode.accesstime.precision</name>
+        <value>0</value>
+        <description>HDFS文件访问时间的精确值, 默认为1小时。当为0时, 表示禁用。若追求性能可以设置为0，若追求后续数据治理，可以打开</description>
+    </property>
+    <property>
+        <name>dfs.namenode.acls.enabled</name>
+        <value>true</value>
+        <description>当为false时, 拒绝所有与设置或获取ACL相关的RPC</description>
+    </property>
+    <property>
+        <name>dfs.namenode.audit.log.async</name>
+        <value>true</value>
+        <description>如果为true, 启用异步审计日志</description>
+    </property>
+    <property>
+        <name>dfs.namenode.avoid.read.stale.datanode</name>
+        <value>true</value>
+        <description>是否允许读取陈旧的datanode(也就是在设定时间间隔内没有向namenode发送心跳消息的节点)</description>
+    </property>
+    <property>
+        <name>dfs.namenode.avoid.write.stale.datanode</name>
+        <value>true</value>
+        <description>是否允许写入陈旧的datanode(也就是在设定时间间隔内没有向namenode发送心跳消息的节点)</description>
+    </property>
+    <property>
+        <name>dfs.namenode.write.stale.datanode.ratio</name>
+        <value>1.0f</value>
+        <description>当陈旧datanode的数量占比超过设置的值时, 会停止写入陈旧的datanode</description>
+    </property>
+    <property>
+        <name>dfs.datanode.handler.count</name>
+        <value>10</value>
+        <description>datanode的服务器线程数</description>
+    </property>
+    <property>
+        <name>dfs.datanode.max.transfer.threads</name>
+        <value>40960</value>
+        <description>datanode进行传输数据的最大线程数</description>
+    </property>
+    <property>
+        <name>dfs.client.socket-timeout</name>
+        <value>180000</value>
+        <description>所有socket的默认超时时间, 单位为毫秒</description>
+    </property>
+    <property>
+        <name>dfs.hosts.exclude</name>
+        <value>/etc/hadoop/conf/dfs.exclude</value>
+        <description>命名一个文件, 该文件包含不允许连接到namenode的主机列表。必须指定文件的完整路径名。如果值为空, 则不排除任何主机</description>
+    </property>
+    <property>
+        <name>dfs.ha.automatic-failover.enabled</name>
+        <value>true</value>
+        <description>是否启用自动故障转移</description>
+    </property>
+    <property>
+        <name>dfs.ha.fencing.methods</name>
+        <value>shell(/bin/true)</value>
+        <description>在故障转移期间, 用于激活namenode的脚本或类名列表</description>
+    </property>
+    <property>
+        <name>dfs.journalnode.edits.dir</name>
+        <value>/dkdata/hadoop-meta/journalnode</value>
+        <description>存储journalnode edit文件的目录</description>
+    </property>
+    <property>
+        <name>dfs.journalnode.rpc-address</name>
+        <value>0.0.0.0:8485</value>
+        <description>journalnode RPC服务器地址和端口</description>
+    </property>
+    <property>
+        <name>dfs.blockreport.initialDelay</name>
+        <value>120</value>
+        <description>第一次块报告的时间延迟, 以秒为单位</description>
+    </property>
+    <property>
+        <name>dfs.replication</name>
+        <value>3</value>
+        <description>副本数量</description>
+    </property>
+    <property>
+        <name>dfs.replication.max</name>
+        <value>50</value>
+        <description>最大副本数量</description>
+    </property>
+    <property>
+        <name>dfs.datanode.directoryscan.threads</name>
+        <value>3</value>
+        <description>Directory Scanner并行执行时的线程数</description>
+    </property>
+    <property>
+        <name>dfs.datanode.du.reserved.pct</name>
+        <value>10</value>
+        <description>预留磁盘的一部分空间给操作系统用</description>
+    </property>
+    <property>
+        <name>dfs.blockreport.intervalMsec</name>
+        <value>172800000</value>
+        <description>DN全量块汇报时间，默认6 * 60 * 60 * 1000，6小时，这个可以稍微调大下，例如1天或者2天</description>
+    </property>
+    <property>
+        <name>dfs.namenode.lock.detailed-metrics.enabled</name>
+        <value>true</value>
+        <description>此参数用于启用或禁用详细的名称节点锁定度量。它用于监视名称节点锁定的性能指标</description>
+    </property>
+    <property>
+        <name>dfs.namenode.quota.init-threads</name>
+        <value>32</value>
+        <description>此参数配置了名称节点初始化配额的线程数。它影响初始化文件系统配额的性能</description>
+    </property>
+    <property>
+        <name>dfs.namenode.block.deletion.increment</name>
+        <value>100</value>
+        <description>该参数定义了块删除的增量计数。它用于确定何时触发块删除操作</description>
+    </property>
+    <property>
+        <name>dfs.namenode.edit.log.autoroll.multiplier.threshold</name>
+        <value>0.1</value>
+        <description>此参数配置了编辑日志滚动的阈值，当编辑日志大小达到阈值的多少倍时会触发滚动</description>
+    </property>
+    <property>
+        <name>dfs.qjournal.start-segment.timeout.ms</name>
+        <value>120000</value>
+        <description>此参数配置了 JournalNode 启动段（segment）的超时时间，用于 HDFS 的 HA 高可用性配置</description>
+    </property>
+    <property>
+        <name>dfs.qjournal.select-input-streams.timeout.ms</name>
+        <value>120000</value>
+        <description>此参数配置了 JournalNode 选择输入流的超时时间，用于 HA JournalNode</description>
+    </property>
+    <property>
+        <name>dfs.qjournal.write-txns.timeout.ms</name>
+        <value>120000</value>
+        <description>该参数配置了 JournalNode 写入事务的超时时间，用于 HA JournalNode</description>
+    </property>
+    <property>
+        <name>dfs.blockreport.split.threshold</name>
+        <value>5000</value>
+        <description>此参数配置了数据块报告的分割阈值。它影响数据块报告的生成</description>
+    </property>
+    <property>
+        <name>dfs.ha.fencing.ssh.connect-timeout</name>
+        <value>5000</value>
+        <description>此参数配置了 SSH 机制的连接超时，用于 HA 高可用性环境中的名称节点故障恢复</description>
+    </property>
+    <property>
+        <name>dfs.stream-buffer-size</name>
+        <value>65536</value>
+        <description>该参数配置了 HDFS 数据流的缓冲区大小，影响数据传输性能</description>
+    </property>
+    <property>
+        <name>dfs.balance.bandwidthPerSec</name>
+        <value>41943040</value>
+        <description>此参数配置了数据均衡操作的每秒带宽限制</description>
+    </property>
+    <property>
+        <name>dfs.image.transfer.timeout</name>
+        <value>600000</value>
+        <description>该参数配置了传输操作的超时时间，用于处理节点传输的时间限制</description>
+    </property>
+    <property>
+        <name>dfs.permissions.enabled</name>
+        <value>true</value>
+        <description>此参数用于启用或禁用 HDFS 权限检查，以控制访问文件和目录的权限</description>
+    </property>
+    <property>
+        <name>dfs.permissions</name>
+        <value>true</value>
+        <description>这个参数用于配置 HDFS 权限的相关设置</description>
+    </property>
+    <property>
+        <name>dfs.ha.zkfc.port</name>
+        <value>8022</value>
+        <description>此参数定义了 ZooKeeper 故障控制器（ZKFC）的通信端口，用于 HA 高可用性环境中的名称节点故障切换</description>
+    </property>
+    <property>
+        <name>dfs.namenode.kerberos.principal.pattern</name>
+        <value>*</value>
+        <description>该参数配置了 Kerberos 主体模式，用于命名节点的 Kerberos 身份验证</description>
+    </property>
+    <property>
+        <name>dfs.namenode.datanode.registration.ip-hostname-check</name>
+        <value>false</value>
+        <description>此参数控制数据节点注册时是否检查 IP 地址与主机名的匹配性</description>
+    </property>
+    <property>
+        <name>dfs.http.policy</name>
+        <value>HTTP_ONLY</value>
+        <description>此参数指定 HDFS HTTP 通信的策略，这里设置为 HTTP_ONLY，表示只使用 HTTP 协议。</description>
+    </property>
+    <property>
+        <name>dfs.domain.socket.path</name>
+        <value>/var/run/hadoop-hdfs/dn_socket</value>
+        <description>此参数配置了 HDFS 数据节点之间的域套接字路径</description>
+    </property>
+    <property>
+        <name>dfs.client.read.shortcircuit</name>
+        <value>true</value>
+        <description>这个参数用于启用或禁用 HDFS 客户端的短路读取功能。设置为 true，表示启用短路读取</description>
+    </property>
+    <property>
+        <name>dfs.client.read.shortcircuit.skip.checksum</name>
+        <value>false</value>
+        <description>此参数控制 HDFS 客户端是否跳过数据块的校验和校验</description>
+    </property>
+    <property>
+        <name>dfs.client.read.shortcircuit.streams.cache.size</name>
+        <value>4096</value>
+        <description>这个参数用于配置短路读取流缓存的大小，即可以缓存的流对象数量</description>
+    </property>
+    <property>
+        <name>dfs.client.use.legacy.blockreader.local</name>
+        <value>false</value>
+        <description>该参数用于控制 HDFS 客户端是否使用旧的本地块阅读器</description>
+    </property>
+    <property>
+        <name>dfs.datanode.fsdataset.volume.choosing.policy</name>
+        <value>org.apache.hadoop.hdfs.server.datanode.fsdataset.AvailableSpaceVolumeChoosingPolicy</value>
+        <description>这些参数配置了数据节点文件系统数据集卷选择策略，用于选择要放置数据块的卷</description>
+    </property>
+    <property>
+        <name>dfs.socket.timeout</name>
+        <value>90000</value>
+        <description>此参数配置了 HDFS 客户端套接字的超时时间，用于控制连接到 HDFS 服务器的等待时间</description>
+    </property>
+    <property>
+        <name>dfs.support.append</name>
+        <value>true</value>
+        <description>该参数用于启用或禁用 HDFS 中的追加操作支持</description>
+    </property>
+    <property>
+        <name>fs.file.impl</name>
+        <value>org.apache.hadoop.fs.LocalFileSystem</value>
+        <description>这些参数定义了 Hadoop 文件系统抽象层的实现类，控制了文件系统的选择</description>
+    </property>
+    <property>
+        <name>fs.hdfs.impl</name>
+        <value>org.apache.hadoop.hdfs.DistributedFileSystem</value>
+        <description>这些参数定义了 Hadoop 文件系统抽象层的实现类，控制了文件系统的选择</description>
+    </property>
+    <property>
+        <name>ha.failover-controller.cli-check.rpc-timeout.ms</name>
+        <value>60000</value>
+        <description>这个参数定义了 HA 故障切换控制器执行 CLI 检查的 RPC 超时时间，以确保故障切换操作的可行性</description>
+    </property>
+    <property>
+        <name>ha.zookeeper.session-timeout.ms</name>
+        <value>5000</value>
+        <description>此参数配置了 ZooKeeper 会话的超时时间，用于 HA 高可用性环境中的名称节点故障切换</description>
+    </property>
+    <property>
+        <name>dfs.client.retry.policy.enabled</name>
+        <value>true</value>
+        <description>这个参数用于启用或禁用 HDFS 客户端的重试策略。当设置为 true 时，客户端将使用重试策略来处理操作中的错误。</description>
+    </property>
+    <property>
+        <name>dfs.client.retry.policy.spec</name>
+        <value>500,20</value>
+        <description>这个参数用于配置 HDFS 客户端的重试策略规范。它是一个由两个整数值组成的逗号分隔字符串，分别表示最大重试次数和重试等待时间ms</description>
+    </property>
+    <property>
+        <name>dfs.client.hedged.read.threadpool.size</name>
+        <value>3</value>
+        <description>该参数配置了 HDFS 客户端执行同时支持的复制阅读操作的线程池大小</description>
+    </property>
+    <property>
+        <name>dfs.client-write-packet-size</name>
+        <value>262144</value>
+        <description>此参数配置了 HDFS 客户端写入数据包的大小</description>
+    </property>
+    <property>
+        <name>dfs.namenode.servicerpc-bind-host</name>
+        <value>0.0.0.0</value>
+        <description>这个参数定义了名称节点服务 RPC 绑定的主机名（hostname）或 IP 地址。通常设置为 0.0.0.0，表示绑定到所有可用的网络接口</description>
+    </property>
+    <property>
+        <name>dfs.namenode.rpc-bind-host</name>
+        <value>0.0.0.0</value>
+        <description>这个参数定义了名称节点 RPC 服务绑定的主机名（hostname）或 IP 地址。通常设置为 0.0.0.0，表示绑定到所有可用的网络接口</description>
+    </property>
+    <property>
+        <name>dfs.namenode.rpc-address.jf-iceberg.nn1</name>
+        <value>jfdkhadoop003:54311</value>
+        <description>nn1处理客户端请求的RPC地址</description>
+    </property>
+    <property>
+        <name>dfs.namenode.rpc-address.jf-iceberg.nn2</name>
+        <value>jfdkhadoop004:54311</value>
+        <description>nn2处理客户端请求的RPC地址</description>
+    </property>
+    <property>
+        <name>dfs.namenode.servicerpc-address.jf-iceberg.nn1</name>
+        <value>jfdkhadoop003:53311</value>
+        <description>nn1用于HDFS服务通信的RPC地址</description>
+    </property>
+    <property>
+        <name>dfs.namenode.servicerpc-address.jf-iceberg.nn2</name>
+        <value>jfdkhadoop004:53311</value>
+        <description>nn2用于HDFS服务通信的RPC地址</description>
+    </property>
+    <property>
+        <name>dfs.namenode.http-address.jf-iceberg.nn1</name>
+        <value>0.0.0.0:50073</value>
+        <description>nn1 webUI监听的地址和端口</description>
+    </property>
+    <property>
+        <name>dfs.namenode.http-address.jf-iceberg.nn2</name>
+        <value>0.0.0.0:50073</value>
+        <description>nn2 webUI监听的地址和端口</description>
+    </property>
+    <property>
+        <name>dfs.namenode.shared.edits.dir.jf-iceberg</name>
+        <value>qjournal://jfdkhadoop018:8485;jfdkhadoop019:8485;jfdkhadoop020:8485/jf-iceberg</value>
+        <description>用于HA场景中, 多个namenode共享的目录, 分号分隔, 形如: [HOST:PORT;]</description>
+    </property>
+    <property>
+        <name>dfs.datanode.kerberos.principal</name>
+        <value>hdfs/_HOST@HADOOP.CHINATELECOM.CN</value>
+        <description>datanode的服务主体</description>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.principal</name>
+        <value>HTTP/_HOST@HADOOP.CHINATELECOM.CN</value>
+        <description>namenode用于WebHDFS SPNEGO验证的服务主体</description>
+    </property>
+    <property>
+        <name>dfs.journalnode.kerberos.principal</name>
+        <value>hdfs/_HOST@HADOOP.CHINATELECOM.CN</value>
+        <description>journalnode的服务主体</description>
+    </property>
+    <property>
+        <name>dfs.journalnode.kerberos.internal.spnego.principal</name>
+        <value>HTTP/_HOST@HADOOP.CHINATELECOM.CN</value>
+        <description>journalnode http server用于SPNEGO验证的服务主体</description>
+    </property>
+    <property>
+        <name>dfs.namenode.kerberos.principal</name>
+        <value>hdfs/_HOST@HADOOP.CHINATELECOM.CN</value>
+        <description>namenode服务的主体</description>
+    </property>
+    <property>
+        <name>dfs.namenode.kerberos.internal.spnego.principal</name>
+        <value>HTTP/_HOST@HADOOP.CHINATELECOM.CN</value>
+        <description>namenode用于web UI SPNEGO验证的服务主体</description>
+    </property>
+    <property>
+        <name>dfs.namenode.inode.attributes.provider.class</name>
+        <value>org.apache.ranger.authorization.hadoop.RangerHdfsAuthorizer</value>
+    </property>
+</configuration>

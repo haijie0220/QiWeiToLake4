@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="QiWeiToLake:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/QiWeiToLake_jar</output-path>
+    <root id="archive" name="QiWeiToLake.jar">
+      <element id="module-output" name="QiWeiToLake" />
+    </root>
+  </artifact>
+</component>
