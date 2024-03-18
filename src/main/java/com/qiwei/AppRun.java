@@ -27,7 +27,7 @@ public class AppRun {
         String hiveWarehouse = "hdfs://jf-iceberg/iceberg/jf_hive_catalog/warehouse/";
         String catalog = "hive_catalog";
         String icebergDatabase = "oth_kj_qwzj";
-        String icebergTable = "con_msg_ext_test22";
+        String icebergTable = "con_msg_ext_test222";
         String mysqlHostname = "134.108.39.138";
         int mysqlPort = 3306;
         String mysqlDatabase = "company_wechat";
